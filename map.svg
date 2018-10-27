@@ -35,49 +35,41 @@
         <text id="aWEOAfDg5" x="395.12" y="302.01" font-size="14" font-family="Open Sans" font-weight="normal" font-style="normal" letter-spacing="0" alignment-baseline="before-edge" transform="matrix(1 0 0 1 0 0)" style="line-height:100%" xml:space="preserve" dominant-baseline="text-before-edge">
             <tspan x="395.12" dy="0em" alignment-baseline="before-edge" dominant-baseline="text-before-edge" text-anchor="start">Turkey</tspan></text>
 
-    <!--vehicle-->
-    <path d="M108.49 391.04L140.12 391.04L140.12 407.84L108.49 407.84L108.49 391.04Z"
-          id="vehicle_part0"></path>
-    <path d="M118.87 412.29C118.87 414.74 116.43 416.74 113.43 416.74C110.43 416.74 107.99 414.74 107.99 412.29C107.99 409.83 110.43 407.84 113.43 407.84C116.43 407.84 118.87 409.83 118.87 412.29Z"
-          id="vehicle_part1"></path>
-    <path d="M140.04 413.27C139.66 415.69 136.3 417.19 132.52 416.61C128.75 416.03 125.99 413.59 126.36 411.16C126.73 408.74 130.1 407.24 133.87 407.82C137.65 408.4 140.41 410.84 140.04 413.27Z"
-          id="vehicle_part2"></path>
-
     <!--route,  attr: data-current=true - for current path-->
     <path d="M144.07 137.19C154.06 134.99 160.31 133.62 162.81 133.07C189.16 127.26 216.72 133.98 237.45 151.26C242.49 155.46 236.43 150.41 244.39 157.05C256.19 166.88 271.06 172.26 286.41 172.26C291.42 172.26 303.93 172.26 323.95 172.26"
-          id="path1"></path>
+          id="path_1" data-visited="true"></path>
     <path d="M323.95 166.09C327.17 169.2 329.18 171.13 329.98 171.91C339.47 181.07 344.26 194.06 342.99 207.18C342.4 213.2 342.85 208.63 342.31 214.18C340.98 227.79 348.98 240.59 361.8 245.36C363.67 246.06 368.35 247.8 375.84 250.59"
-          id="path2" data-current="true"></path>
+          id="path_2" data-visited="true" data-current="true"></path>
     <path d="M375.84 259.76C377.23 259.82 378.09 259.86 378.44 259.87C399.24 260.76 419.99 257.17 439.28 249.34C444.38 247.28 434.59 251.25 440.74 248.75C455.99 242.57 473.18 243.4 487.76 251.03C488.72 251.54 491.11 252.79 494.94 254.79"
-          id="path3"></path>
+          id="path_3"></path>
 
     <!--visited spots,  attr: data-current=true - for current place-->
     <path d="M158.9 131.02C158.9 135.66 154.02 139.42 148.02 139.42C142.02 139.42 137.15 135.66 137.15 131.02C137.15 126.39 142.02 122.62 148.02 122.62C154.02 122.62 158.9 126.39 158.9 131.02Z"
-          id="spot1"></path>
+          id="spot_1" data-visited="true"></path>
     <path d="M332.17 166.09C332.17 170.73 327.3 174.5 321.3 174.5C315.3 174.5 310.43 170.73 310.43 166.09C310.43 161.46 315.3 157.69 321.3 157.69C327.3 157.69 332.17 161.46 332.17 166.09Z"
-          id="spot2" data-current="true"></path>
+          id="spot_2" data-current="true"></path>
     <path d="M386.72 251.11C386.72 255.75 381.84 259.51 375.84 259.51C369.84 259.51 364.97 255.75 364.97 251.11C364.97 246.47 369.84 242.71 375.84 242.71C381.84 242.71 386.72 246.47 386.72 251.11Z"
-          id="spot3"></path>
+          id="spot_3"></path>
     <path d="M505.81 243.92C505.81 248.56 500.94 252.33 494.94 252.33C488.94 252.33 484.07 248.56 484.07 243.92C484.07 239.29 488.94 235.52 494.94 235.52C500.94 235.52 505.81 239.29 505.81 243.92Z"
-          id="spot4"></path>
+          id="spot_4"></path>
 </defs>
 <g>
     <g>
-        <g>
+        <g id="country_macedonia">
             <use xlink:href="#Macedonia" opacity="1" fill="#d3fbc8" fill-opacity="1"></use>
             <g>
                 <use xlink:href="#Macedonia" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
                      stroke-opacity="1"></use>
             </g>
         </g>
-        <g>
+        <g id="country_bulgaria">
             <use xlink:href="#Bulgaria" opacity="1" fill="#e2ddf8" fill-opacity="1"></use>
             <g>
                 <use xlink:href="#Bulgaria" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
                      stroke-opacity="1"></use>
             </g>
         </g>
-        <g>
+        <g id="country_turkey">
             <use xlink:href="#Turkey" opacity="1" fill="#f3d5ff" fill-opacity="1"></use>
             <g>
                 <use xlink:href="#Turkey" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
@@ -91,75 +83,58 @@
                      stroke-opacity="1"></use>
             </g>
         </g>
-        <g id="text_macedonia">
+        <g id="country_name_macedonia">
             <use xlink:href="#d1mGpRGVq" opacity="1" fill="#92433d" fill-opacity="1"></use>
         </g>
-        <g id="text_bulgaria">
+        <g id="country_name_bulgaria">
             <use xlink:href="#amqgDqtFh" opacity="1" fill="#92433d" fill-opacity="1"></use>
         </g>
-        <g id="text_turkey">
+        <g id="country_name_turkey">
             <use xlink:href="#aWEOAfDg5" opacity="1" fill="#92433d" fill-opacity="1"></use>
         </g>
-        <g id="vehicle">
-            <use xlink:href="#vehicle_part0" opacity="1" fill="url(#gradientb2UeQ8fmj)"></use>
+        <g>
             <g>
-                <use xlink:href="#vehicle_part0" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
-                     stroke-opacity="1"></use>
-            </g>
-            <use xlink:href="#vehicle_part1" opacity="1" fill="#412bec" fill-opacity="1"></use>
-            <g>
-                <use xlink:href="#vehicle_part1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
-                     stroke-opacity="1"></use>
-            </g>
-            <use xlink:href="#vehicle_part2" opacity="1" fill="#085eff" fill-opacity="1"></use>
-            <g>
-                <use xlink:href="#vehicle_part2" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
+                <use xlink:href="#path_1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
             <g>
-                <use xlink:href="#path1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
+                <use xlink:href="#path_2" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
             <g>
-                <use xlink:href="#path2" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
+                <use xlink:href="#path_3" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
+            <use xlink:href="#spot_2" opacity="1" fill="#f60704" fill-opacity="1"></use>
             <g>
-                <use xlink:href="#path3" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1"
+                <use xlink:href="#spot_2" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
-            <use xlink:href="#spot2" opacity="1" fill="#f60704" fill-opacity="1"></use>
+            <use xlink:href="#spot_3" opacity="1" fill="#f60704" fill-opacity="1"></use>
             <g>
-                <use xlink:href="#spot2" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
+                <use xlink:href="#spot_3" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
-            <use xlink:href="#spot3" opacity="1" fill="#f60704" fill-opacity="1"></use>
+            <use xlink:href="#spot_4" opacity="1" fill="#f60704" fill-opacity="1"></use>
             <g>
-                <use xlink:href="#spot3" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
+                <use xlink:href="#spot_4" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
                      stroke-opacity="1"></use>
             </g>
         </g>
         <g>
-            <use xlink:href="#spot4" opacity="1" fill="#f60704" fill-opacity="1"></use>
+            <use xlink:href="#spot_1" opacity="1" fill="#f60704" fill-opacity="1"></use>
             <g>
-                <use xlink:href="#spot4" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
-                     stroke-opacity="1"></use>
-            </g>
-        </g>
-        <g>
-            <use xlink:href="#spot1" opacity="1" fill="#f60704" fill-opacity="1"></use>
-            <g>
-                <use xlink:href="#spot1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
+                <use xlink:href="#spot_1" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="2"
                      stroke-opacity="1"></use>
             </g>
         </g>

@@ -9,49 +9,70 @@ function ready(error, xml) {
     d3.select("#map").node().appendChild(importedNode);
 
     var svg = d3.select("svg");
-var currentSpot = $('')
-    var path = svg.select("path[id^=path][data-current=true]"),
-        startPoint = pathStartPoint(path);
 
-    var checkbox = d3.selectAll("input[name=visibility]");
+    var visitedPaths = svg.selectAll("path[id^=path][data-visited=true]");
+    var firstPath = svg.select("path[id^=path][data-current=true]");
+    var startPoint = pathStartPoint(firstPath);
 
-    checkbox.on("change", function() {
-        if (this.checked) {
-            path.style("visibility", "visible");
-            this.value = "visible";
-        } else {
-            path.style("visibility", "hidden");
-            this.value = "hidden";
-        };
-    });
-
-    var marker = svg.append("image")
+    var vehicle = svg.append("image")
         .attr("xlink:href", "vehicle.png")
         .attr("transform", "translate(" + startPoint[0] + "," + startPoint[1] + ")")
-        .attr("width", 48)
-        .attr("height", 24);
+        .attr("width", 60)
+        .attr("height", 30);
 
-    transition();
+    function animateVehicleAlongVisitedPaths(paths) {
+        var i = 0;
+        step(paths);
 
-    //Get path start point for placing marker
+        function step(paths) {
+            if (i >= paths.length) return;
+            transition(paths[i++], 1700, function () {
+                return zoomInAndOut(1.2, 750, function () {
+                    step(paths);
+                });
+            });
+        }
+    }
+
+    animateVehicleAlongVisitedPaths(visitedPaths[0]);
+
+    //Get path start point for placing vehicle
     function pathStartPoint(path) {
         var d = path.attr("d"),
             dsplitted = d.split(" ");
-        return dsplitted[0].replace('m', '').replace('M', '').split(",");
+        let posX = dsplitted[0].replace('m', '').replace('M', '');
+        let posY = dsplitted[1].replace(/C.*/, "");
+        return [posX, posY];
     }
 
-    function transition() {
-        marker.transition()
-            .duration(17000)
-            .attrTween("transform", translateAlong(path.node()));
-            //.each("end", transition);// infinite loop
+    function zoomInAndOut(scale, duration, callbackFn) {
+        let dd = vehicle.attr("transform");
+        return vehicle.transition()
+            .duration(duration)
+            .attr("transform", dd + "scale(" + scale + "," + scale + ")")
+            .each("end", function () {
+                let dd = vehicle.attr("transform").replace(/scale\(.*\)/, "scale(1,1)");
+                let attr = vehicle.transition()
+                    .duration(duration)
+                    .attr("transform", dd);
+
+                return attr.each("end", callbackFn ? callbackFn : function () {
+                });
+            });
+    }
+
+    function transition(path, duration, callbackFn) {
+        return vehicle.transition()
+            .duration(duration)
+            .attrTween("transform", translateAlong(path)).each("end", callbackFn ? callbackFn : function () {
+            });
     }
 
     function translateAlong(path) {
         var l = path.getTotalLength();
         var t0 = 0;
-        return function(i) {
-            return function(t) {
+        return function (i) {
+            return function (t) {
                 var p0 = path.getPointAtLength(t0 * l);//previous point
                 var p = path.getPointAtLength(t * l);////current point
                 var angle = Math.atan2(p.y - p0.y, p.x - p0.x) * 180 / Math.PI;//angle for tangent
@@ -59,7 +80,7 @@ var currentSpot = $('')
                 //Shifting center to center of rocket
                 var centerX = p.x - 24,
                     centerY = p.y - 12;
-                return "translate(" + centerX + "," + centerY + ")rotate(" + angle + " 24" + " 12" +")";
+                return "translate(" + centerX + "," + centerY + ")rotate(" + angle + " 24" + " 12" + ")";
             }
         }
     }

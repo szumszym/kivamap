@@ -1,0 +1,6 @@
+name                    id                  info
+-----------------------------------------------
+country                 country_NAME        line around specific country
+country name text       country_name_NAME
+spot                    spot_NUMBER         every visited spot on the way
+path                    path_NUMBER         line between spots, <path> svg element required
